@@ -8,12 +8,11 @@
 	<wsdl:types>
 
 		<xsd:schema targetNamespace="http://www.briansjavablog.com/Accounts/">
-
 		</xsd:schema>
 
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 			<xsd:import namespace="http://com/blog/samples/webservices/accountservice"
-				schemaLocation="../schema/AccountDetailsServiceOperations.xsd">
+				schemaLocation="../schema/AccountsService.xsd">
 			</xsd:import>
 		</xsd:schema>
 	
