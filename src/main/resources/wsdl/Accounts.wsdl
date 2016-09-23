@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/"
 	xmlns:tns="http://www.briansjavablog.com/Accounts/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Accounts"
 	targetNamespace="http://www.briansjavablog.com/Accounts/" 
@@ -7,8 +7,8 @@
 
 	<wsdl:types>
 
-		<xsd:schema targetNamespace="http://www.briansjavablog.com/Accounts/">
-		</xsd:schema>
+		<!-- <xsd:schema targetNamespace="http://www.briansjavablog.com/Accounts/">
+		</xsd:schema> -->
 
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 			<xsd:import namespace="http://com/blog/samples/webservices/accountservice"

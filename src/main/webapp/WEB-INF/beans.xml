@@ -21,6 +21,18 @@
        <jaxws:endpoint
        	  id="accountService"
        	  implementor="com.briansjavablog.accounts.service.AccountServiceEndpoint"
-       	  address="/services/accounts" />
+       	  address="/services/accounts">
+       	  	
+       	  	<jaxws:inInterceptors>
+			<ref bean="loggingInInterceptor" />
+			</jaxws:inInterceptors>
+			<jaxws:outInterceptors>
+				<ref bean="loggingOutInterceptor" />
+			</jaxws:outInterceptors>
+       	  	
+       	</jaxws:endpoint>
+
+	<bean id="loggingInInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+	<bean id="loggingOutInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
           
 </beans>

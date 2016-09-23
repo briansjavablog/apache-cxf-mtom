@@ -4,7 +4,6 @@ package com.blog.samples.webservices.accountservice;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -14,18 +13,18 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Account"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="AccountNumber" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="AccountName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="AccountBalance" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
- *         &lt;element name="AccountStatus" type="{http://com/blog/samples/webservices/accountservice}EnumAccountStatus"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="Account">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="AccountNumber" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="AccountName" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="AccountBalance" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="AccountStatus" type="{http://com/blog/samples/webservices/accountservice}EnumAccountStatus"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -46,7 +45,6 @@ public class Account {
     @XmlElement(name = "AccountBalance")
     protected double accountBalance;
     @XmlElement(name = "AccountStatus", required = true)
-    @XmlSchemaType(name = "string")
     protected EnumAccountStatus accountStatus;
 
     /**
