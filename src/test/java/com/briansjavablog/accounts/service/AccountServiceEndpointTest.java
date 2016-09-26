@@ -3,7 +3,6 @@ package com.briansjavablog.accounts.service;
 import static org.junit.Assert.assertTrue;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,24 +20,19 @@ import com.briansjavablog.accounts.Accounts;
 @ContextConfiguration( {"classpath:beans-test.xml"} )
 public class AccountServiceEndpointTest {
 
+	/*@Autowired
+	private JaxWsProxyFactoryBean proxyFactoryBean;*/
 	@Autowired
-	private JaxWsProxyFactoryBean proxyFactoryBean;
 	private Accounts accountsService;
 	private AccountDetailsRequest accountDetailsRequest;
 	
 	@Before
 	public void setUp() throws Exception {
 		
-		accountsService = proxyFactoryBean.create(Accounts.class);		
+		//accountsService = proxyFactoryBean.create(Accounts.class);		
 		ObjectFactory objectFactory = new ObjectFactory();
 		accountDetailsRequest = objectFactory.createAccountDetailsRequest();
 		accountDetailsRequest.setAccountNumber("12345");
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	
-	
 	}
 
 	@Test

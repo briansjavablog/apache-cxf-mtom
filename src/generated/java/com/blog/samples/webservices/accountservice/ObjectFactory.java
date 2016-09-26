@@ -30,6 +30,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AccountDetailsRequest }
+     * 
+     */
+    public AccountDetailsRequest createAccountDetailsRequest() {
+        return new AccountDetailsRequest();
+    }
+
+    /**
      * Create an instance of {@link AccountDetailsResponse }
      * 
      */
@@ -43,14 +51,6 @@ public class ObjectFactory {
      */
     public Account createAccount() {
         return new Account();
-    }
-
-    /**
-     * Create an instance of {@link AccountDetailsRequest }
-     * 
-     */
-    public AccountDetailsRequest createAccountDetailsRequest() {
-        return new AccountDetailsRequest();
     }
 
 }

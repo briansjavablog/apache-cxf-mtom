@@ -2,20 +2,17 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/"
 	xmlns:tns="http://www.briansjavablog.com/Accounts/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Accounts"
-	targetNamespace="http://www.briansjavablog.com/Accounts/" 
+	targetNamespace="http://www.briansjavablog.com/Accounts/"
 	xmlns:accounts="http://com/blog/samples/webservices/accountservice">
 
 	<wsdl:types>
-
-		<!-- <xsd:schema targetNamespace="http://www.briansjavablog.com/Accounts/">
-		</xsd:schema> -->
 
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 			<xsd:import namespace="http://com/blog/samples/webservices/accountservice"
 				schemaLocation="../schema/AccountsService.xsd">
 			</xsd:import>
 		</xsd:schema>
-	
+
 	</wsdl:types>
 
 	<wsdl:message name="AccountDetailsRequest">
@@ -35,7 +32,8 @@
 		<soap:binding style="document"
 			transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="GetAccountDetails">
-			<soap:operation soapAction="http://www.briansjavablog.com/Accounts/GetAccountDetails" />
+			<soap:operation
+				soapAction="http://www.briansjavablog.com/Accounts/GetAccountDetails" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -46,7 +44,8 @@
 	</wsdl:binding>
 	<wsdl:service name="AccountsService">
 		<wsdl:port binding="tns:AccountsServiceSoapBinding" name="AccountsPort">
-			<soap:address location="http://localhost:8080/apache-cfx-demo/services/accounts" />
+			<soap:address
+				location="http://localhost:8080/apache-cfx-demo/services/accounts" />
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

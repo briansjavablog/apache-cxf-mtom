@@ -11,8 +11,8 @@
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<context:component-scan base-package="com.briansjavablog.accounts" />
 
-	<jaxws:server id="inlineImplementor"
-		address="http://localhost:8080/apache-cxf-demo/services/accounts">
+	<jaxws:server id="accountService"
+			      address="http://localhost:8080/apache-cxf-demo/services/accounts">
 		<jaxws:serviceBean>
 			<bean class="com.briansjavablog.accounts.service.AccountServiceEndpoint" />
 		</jaxws:serviceBean>
@@ -24,8 +24,11 @@
 		</jaxws:outInterceptors>
 	</jaxws:server>
 
-	<bean id="loggingInInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
-	<bean id="loggingOutInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
+	<bean id="abstractLoggingInterceptor" abstract="true">
+		<property name="prettyLogging" value="true" />
+	</bean>
+	<bean id="loggingInInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" parent="abstractLoggingInterceptor" />
+	<bean id="loggingOutInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" parent="abstractLoggingInterceptor" />
 
 	<jaxws:client id="testAccountServiceClient"
 		address="http://localhost:8080/apache-cxf-demo/services/accounts"
