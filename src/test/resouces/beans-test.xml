@@ -44,20 +44,33 @@
 		 		      wsdlLocation="wsdl/Accounts.wsdl"
 					  serviceName="GetAccountDetails"> -->
 		
+		
+		<jaxws:server id="inlineImplementor" address="http://localhost:8080/apache-cxf-demo/services/accounts">
+	      <jaxws:serviceBean>
+	        <bean class="com.briansjavablog.accounts.service.AccountServiceEndpoint"/>
+	      </jaxws:serviceBean>
+	      <jaxws:inInterceptors>
+			<ref bean="loggingInInterceptor" />
+			</jaxws:inInterceptors>
+			<jaxws:outInterceptors>
+				<ref bean="loggingOutInterceptor" />
+		  </jaxws:outInterceptors>
+	    </jaxws:server>
+		<!-- 
 		<jaxws:server id="testAccountService"
 					  address="http://localhost:8080/apache-cxf-demo/services/accounts" 
-					  serviceBean="#testAccountService"		 		      
-					  serviceClass="com.briansjavablog.accounts.Accounts">
-		
+					  serviceBean="com.briansjavablog.accounts.service.AccountServiceEndpoint">
+		-->			  		
 		<!-- Service class is SEI (Service ENdpoint Interface) -->
 		
+		<!--
 		<jaxws:inInterceptors>
 			<ref bean="loggingInInterceptor" />
 		</jaxws:inInterceptors>
 		<jaxws:outInterceptors>
 			<ref bean="loggingOutInterceptor" />
 		</jaxws:outInterceptors>
-	</jaxws:server>
+	</jaxws:server> -->
 
 <!--        <jaxws:endpoint
        	  id="accountService"
@@ -79,7 +92,7 @@
 	<bean id="loggingInInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
 	<bean id="loggingOutInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
 
-<!-- 	<jaxws:client id="testAccountServiceClient"
+ 	<jaxws:client id="testAccountServiceClient"
 		address="http://localhost:8080/apache-cxf-demo/services/accounts"
 		serviceClass="com.briansjavablog.accounts.Accounts">
 		
@@ -90,6 +103,6 @@
 			<ref bean="loggingOutInterceptor" />
 		</jaxws:outInterceptors>
 	
-	</jaxws:client> -->
+	</jaxws:client>
 
 </beans>

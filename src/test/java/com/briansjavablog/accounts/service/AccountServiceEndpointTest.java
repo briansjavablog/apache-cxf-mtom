@@ -21,7 +21,7 @@ import com.briansjavablog.accounts.Accounts;
 @ContextConfiguration( {"classpath:beans-test.xml"} )
 public class AccountServiceEndpointTest {
 
-	//@Autowired
+	@Autowired
 	private JaxWsProxyFactoryBean proxyFactoryBean;
 	private Accounts accountsService;
 	private AccountDetailsRequest accountDetailsRequest;
@@ -29,10 +29,10 @@ public class AccountServiceEndpointTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		/*accountsService = proxyFactoryBean.create(Accounts.class);		
+		accountsService = proxyFactoryBean.create(Accounts.class);		
 		ObjectFactory objectFactory = new ObjectFactory();
 		accountDetailsRequest = objectFactory.createAccountDetailsRequest();
-		accountDetailsRequest.setAccountNumber("12345");*/
+		accountDetailsRequest.setAccountNumber("12345");
 	}
 
 	@After
@@ -43,7 +43,6 @@ public class AccountServiceEndpointTest {
 
 	@Test
 	public void testGetAccountDetails() throws Exception {
-		Thread.sleep(600000);
 		AccountDetailsResponse response = accountsService.getAccountDetails(accountDetailsRequest);
 		assertTrue(response.getAccountDetails()!= null);
 		assertTrue(response.getAccountDetails().getAccountNumber().equals("12345"));

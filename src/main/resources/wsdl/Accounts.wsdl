@@ -31,7 +31,7 @@
 			<wsdl:output message="tns:AccountDetailsResponse" />
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="AccountsSOAP" type="tns:Accounts">
+	<wsdl:binding name="AccountsServiceSoapBinding" type="tns:Accounts">
 		<soap:binding style="document"
 			transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="GetAccountDetails">
@@ -44,8 +44,8 @@
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:service name="Accounts">
-		<wsdl:port binding="tns:AccountsSOAP" name="AccountsSOAP">
+	<wsdl:service name="AccountsService">
+		<wsdl:port binding="tns:AccountsServiceSoapBinding" name="AccountsPort">
 			<soap:address location="http://localhost:8080/apache-cfx-demo/services/accounts" />
 		</wsdl:port>
 	</wsdl:service>
