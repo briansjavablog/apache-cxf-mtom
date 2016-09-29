@@ -2,7 +2,6 @@ package com.briansjavablog.accounts.service;
 
 import static org.junit.Assert.assertTrue;
 
-import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,11 +16,9 @@ import com.blog.samples.webservices.accountservice.ObjectFactory;
 import com.briansjavablog.accounts.Accounts;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration( {"classpath:beans-test.xml"} )
+@ContextConfiguration( {"classpath:beans-config-test.xml"} )
 public class AccountServiceEndpointTest {
 
-	/*@Autowired
-	private JaxWsProxyFactoryBean proxyFactoryBean;*/
 	@Autowired
 	private Accounts accountsService;
 	private AccountDetailsRequest accountDetailsRequest;
@@ -29,7 +26,6 @@ public class AccountServiceEndpointTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		//accountsService = proxyFactoryBean.create(Accounts.class);		
 		ObjectFactory objectFactory = new ObjectFactory();
 		accountDetailsRequest = objectFactory.createAccountDetailsRequest();
 		accountDetailsRequest.setAccountNumber("12345");

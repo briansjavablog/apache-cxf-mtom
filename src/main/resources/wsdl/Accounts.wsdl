@@ -4,24 +4,19 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Accounts"
 	targetNamespace="http://www.briansjavablog.com/Accounts/"
 	xmlns:accounts="http://com/blog/samples/webservices/accountservice">
-
 	<wsdl:types>
-
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 			<xsd:import namespace="http://com/blog/samples/webservices/accountservice"
 				schemaLocation="../schema/AccountsService.xsd">
 			</xsd:import>
 		</xsd:schema>
-
 	</wsdl:types>
-
 	<wsdl:message name="AccountDetailsRequest">
 		<wsdl:part element="accounts:AccountDetailsRequest" name="parameters" />
 	</wsdl:message>
 	<wsdl:message name="AccountDetailsResponse">
 		<wsdl:part element="accounts:AccountDetailsResponse" name="parameters" />
 	</wsdl:message>
-	<!-- Comparable to interface in Java -->
 	<wsdl:portType name="Accounts">
 		<wsdl:operation name="GetAccountDetails">
 			<wsdl:input message="tns:AccountDetailsRequest" />

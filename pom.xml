@@ -8,7 +8,6 @@
 	<name>Simple CXF Java-first SOAP project using Spring configuration</name>
 	<description>Simple CXF Java-first SOAP project using Spring configuration</description>
 	<properties>
-        <!-- <apache.cxf.version>2.7.8</apache.cxf.version> -->
         <apache.cxf.version>3.1.7</apache.cxf.version>          
     </properties>
 	<dependencies>
@@ -16,12 +15,6 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 			<version>${apache.cxf.version}</version>
-	<!-- 		<exclusions>
-				<exclusion>
-					<artifactId>jaxb-core</artifactId>
-					<groupId>com.sun.xml.bind</groupId>
-				</exclusion>
-			</exclusions> -->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -52,33 +45,9 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<!-- mvn clean install tomcat:run-war to deploy Look for "Running war 
-						on http://xxx" and "Setting the server's publish address to be /yyy" in console 
-						output; WSDL browser address will be concatenation of the two: http://xxx/yyy?wsdl -->
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>2.0</version>
-					<executions>
-						<execution>
-							<id>start-tomcat</id>
-							<goals>
-								<goal>run-war</goal>
-							</goals>
-							<phase>pre-integration-test</phase>
-							<configuration>
-								<port>${test.server.port}</port>
-								<path>/webservice</path>
-								<fork>true</fork>
-								<useSeparateTomcatClassLoader>true</useSeparateTomcatClassLoader>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
@@ -87,25 +56,13 @@
 						<target>1.7</target>
 					</configuration>
 				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<configuration>
-						<projectNameTemplate>[artifactId]-[version]</projectNameTemplate>
-						<wtpmanifest>true</wtpmanifest>
-						<wtpapplicationxml>true</wtpapplicationxml>
-						<wtpversion>2.0</wtpversion>
-					</configuration>
-				</plugin>
 			</plugins>
-		</pluginManagement>
-		
+		</pluginManagement>	
 		<plugins>
 			<plugin>
 			    <groupId>org.apache.cxf</groupId>
 			    <artifactId>cxf-codegen-plugin</artifactId>
-			    <!-- <version>3.1.7</version> -->
-			    <version>2.7.8</version>
+			    <version>3.1.7</version>
 			    <executions>
 			        <execution>
 			            <id>generate-sources</id>
@@ -126,5 +83,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
