@@ -1,4 +1,4 @@
-# Apache CXF Demo
+# Apache CXF Contract First Service Demo
 
 [![Build Status](https://drone.io/github.com/briansjavablog/apache-cxf-demo/status.png)](https://drone.io/github.com/briansjavablog/apache-cxf-demo/latest)
 
