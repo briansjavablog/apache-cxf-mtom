@@ -26,5 +26,4 @@ public class AccountServiceImpl implements AccountService {
 		response.setAccountDetails(account);		
 		return response;
 	}
-
 }

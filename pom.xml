@@ -94,7 +94,7 @@
 							<sourceRoot>src/generated/java</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
-									<wsdl>${basedir}/src/main/resources/wsdl/Accounts.wsdl</wsdl>
+									<wsdl>${basedir}/src/main/resources/wsdl/Accounts.wsdl</wsdl>									
 								</wsdlOption>
 							</wsdlOptions>
 						</configuration>
