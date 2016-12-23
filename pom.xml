@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.briansjavablog</groupId>
-	<artifactId>apache-cxf-demo</artifactId>
+	<artifactId>apache-cxf-mtom</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>Simple CXF Java-first SOAP project using Spring configuration</name>
-	<description>Simple CXF Java-first SOAP project using Spring configuration</description>
+	<name>CXF MTOM Demo</name>
+	<description>CXF SOAP service using Message Transmission Optimization Mechanism (MTOM) for binary data transmission</description>
 	<properties>
 		<apache.cxf.version>3.1.7</apache.cxf.version>
 	</properties>
