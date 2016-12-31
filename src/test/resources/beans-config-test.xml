@@ -11,8 +11,7 @@
 	
 	<context:component-scan base-package="com.briansjavablog.accounts" />
 
-	<jaxws:server id="accountService"
-			      address="http://localhost:8080/apache-cxf-demo/services/accounts">
+	<jaxws:server id="accountService" address="http://localhost:8080/apache-cxf-demo/services/accounts">
 		<jaxws:serviceBean>
 			<bean class="com.briansjavablog.accounts.service.AccountServiceEndpoint" />
 		</jaxws:serviceBean>
@@ -22,8 +21,11 @@
 		<jaxws:outInterceptors>
 			<ref bean="loggingOutInterceptor" />
 		</jaxws:outInterceptors>
+		<jaxws:properties>
+      		<entry key="mtom-enabled" value="true"/>
+    	</jaxws:properties>
 	</jaxws:server>
-
+	
 	<jaxws:client id="testAccountServiceClient"
 		address="http://localhost:8080/apache-cxf-demo/services/accounts"
 		serviceClass="com.briansjavablog.accounts.Accounts">

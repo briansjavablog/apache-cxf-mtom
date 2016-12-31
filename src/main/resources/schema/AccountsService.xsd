@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com/blog/samples/webservices/accountservice" xmlns:account="http://webservices.samples.blog.com" targetNamespace="http://com/blog/samples/webservices/accountservice" elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+			xmlns="http://com/blog/samples/webservices/accountservice" 
+			xmlns:account="http://webservices.samples.blog.com" 
+			targetNamespace="http://com/blog/samples/webservices/accountservice" 
+			elementFormDefault="qualified">
 	<xsd:complexType name="Account">
 		<xsd:sequence>
 			<xsd:element name="AccountNumber" type="xsd:string"/>
 			<xsd:element name="AccountName" type="xsd:string"/>
 			<xsd:element name="AccountBalance" type="xsd:double"/>
 			<xsd:element name="AccountStatus" type="EnumAccountStatus"/>
+			<xsd:element name="Statement" type="xsd:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
 		</xsd:sequence>
 	</xsd:complexType>	
 	<xsd:simpleType name="EnumAccountStatus">
