@@ -11,7 +11,8 @@
 			<xsd:element name="AccountName" type="xsd:string"/>
 			<xsd:element name="AccountBalance" type="xsd:double"/>
 			<xsd:element name="AccountStatus" type="EnumAccountStatus"/>
-			<xsd:element name="Statement" type="xsd:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+			<xsd:element name="Statement" type="xsd:base64Binary" 
+							xmime:expectedContentTypes="application/pdf"/>				
 		</xsd:sequence>
 	</xsd:complexType>	
 	<xsd:simpleType name="EnumAccountStatus">

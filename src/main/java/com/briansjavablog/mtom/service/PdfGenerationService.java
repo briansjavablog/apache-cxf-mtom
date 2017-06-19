@@ -1,4 +1,4 @@
-package com.briansjavablog.accounts.service;
+package com.briansjavablog.mtom.service;
 
 import java.io.ByteArrayOutputStream;
 
@@ -17,7 +17,6 @@ public class PdfGenerationService {
 		try {
 
 			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-
 			Document document = new Document(PageSize.LETTER);
 			PdfWriter.getInstance(document, byteArrayOutputStream);
 
@@ -31,7 +30,7 @@ public class PdfGenerationService {
 				table.addCell("Header " + i);
 			}
 
-			for (int i = 0; i < 500; i++) {
+			for (int i = 0; i < 50; i++) {
 				if (i % 5 == 0) {
 					document.add(table);
 				}
@@ -44,8 +43,7 @@ public class PdfGenerationService {
 
 			return byteArrayOutputStream.toByteArray();
 		} catch (Exception ex) {
-			ex.printStackTrace();
-			throw new RuntimeException();
+			throw new RuntimeException(ex);
 		}
 	}
 }

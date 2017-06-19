@@ -53,7 +53,7 @@ public class Account {
     @XmlSchemaType(name = "string")
     protected EnumAccountStatus accountStatus;
     @XmlElement(name = "Statement", required = true)
-    @XmlMimeType("application/octet-stream")
+    @XmlMimeType("application/pdf")
     protected DataHandler statement;
 
     /**

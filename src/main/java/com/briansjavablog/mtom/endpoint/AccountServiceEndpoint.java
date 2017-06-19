@@ -1,7 +1,8 @@
-package com.briansjavablog.accounts.service;
+package com.briansjavablog.mtom.endpoint;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
+import javax.jws.WebService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,15 +12,20 @@ import com.blog.samples.webservices.accountservice.AccountDetailsRequest;
 import com.blog.samples.webservices.accountservice.AccountDetailsResponse;
 import com.blog.samples.webservices.accountservice.EnumAccountStatus;
 import com.blog.samples.webservices.accountservice.ObjectFactory;
+import com.briansjavablog.accounts.Accounts;
+import com.briansjavablog.mtom.service.PdfGenerationService;
 import com.sun.istack.ByteArrayDataSource;
 
 @Service
-public class AccountServiceImpl implements AccountService {
+@WebService(portName = "Accounts", serviceName = "Accounts", 
+			endpointInterface = "com.briansjavablog.accounts.Accounts", 
+			targetNamespace = "http://www.briansjavablog.com/Accounts/")
+public class AccountServiceEndpoint implements Accounts {
 
 	private PdfGenerationService pdfGenerationService;
-	
+
 	@Autowired
-	public AccountServiceImpl(PdfGenerationService pdfGenerationService) {
+	public AccountServiceEndpoint(PdfGenerationService pdfGenerationService) {
 		this.pdfGenerationService = pdfGenerationService;
 	}
 	
@@ -38,7 +44,6 @@ public class AccountServiceImpl implements AccountService {
 		byte[] pdfDocument = pdfGenerationService.generatePdf();		
 		DataSource byteArrayDataSource = new ByteArrayDataSource(pdfDocument, "application/pdf");
 		account.setStatement(new DataHandler(byteArrayDataSource));
-		
 		response.setAccountDetails(account);		
 		return response;
 	}
